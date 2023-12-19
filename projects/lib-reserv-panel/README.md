@@ -1,0 +1,1 @@
+<lib-LibReservPanel [RentItemID]="شماره شناسایی اتاق" [Cap]="ظرفیت اتاق"></lib-LibReservPanel>

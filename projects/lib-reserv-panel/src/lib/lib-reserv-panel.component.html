@@ -1,0 +1,146 @@
+<html style="direction:rtl">
+  
+                <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-5.5 MuiGrid-grid-md-4.5 MuiGrid-grid-lg-3.6 rtl-mui-htjxbz" id="content">
+                    <div class="sticky-class-price-box MuiBox-root rtl-mui-zpwn5i">
+                        <div class="MuiBox-root rtl-mui-vvv8ao">
+                            <div class="MuiBox-root rtl-mui-j7u2b5">
+                                <div class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column rtl-mui-1hs2k7l">
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                        <div class="MuiBox-root rtl-mui-axw7ok">
+                                            <p class="MuiTypography-root MuiTypography-body1 rtl-mui-l7g6kx">قیمت کل</p>
+                                            <span class="MuiBox-root rtl-mui-cdk6dm">6,000,000 تومان</span>
+                                        </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                        <hr class="MuiDivider-root MuiDivider-fullWidth rtl-mui-39bbo6" color="#f9f9f9" />
+                                    </div>
+
+                                    <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-true rtl-mui-wlatvq">
+                                        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                            <p class="MuiTypography-root MuiTypography-body1 rtl-mui-1ggs1jx">تاریخ سفر</p>
+                                        </div>
+                                        <div class="MuiGrid-root MuiGrid-item rtl-mui-1wxaqej">
+                                            <button class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root rtl-mui-1rbh2e8" tabindex="0" (click)="clearSelectedDate()" type="button">
+                                                <span class="MuiButton-startIcon MuiButton-iconSizeMedium rtl-mui-6xugel">
+                                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rtl-mui-15bitqu" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="DeleteOutlineIcon">
+                                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5-1-1h-5l-1 1H5v2h14V4z"></path>
+                                                    </svg>
+                                                </span>
+                                                پاک کردن تاریخ
+                                                <span class="MuiTouchRipple-root rtl-mui-w0pj6f"> </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                        <div class="MuiBox-root rtl-mui-1ylwukl">
+                                            <div class="MuiBox-root rtl-mui-1aj79mw" (click)="setShowDateToggle()">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-ptw31l">تاریخ ورود</p>
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-6jgfo8">{{this.startDateReservation}}</p>
+                                            </div>
+                                            <div class="MuiBox-root rtl-mui-hco0lj" (click)="setShowDateToggle()">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-ptw31l">تاریخ خروج</p>
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-6jgfo8">{{endDateReservation}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-lfk2sp">
+                                        <p class="MuiTypography-root MuiTypography-body1 rtl-mui-1ggs1jx">تعداد نفرات</p>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-1jq1apy">
+                                        <div class="styled-number-input MuiBox-root rtl-mui-14w3s1h">
+                                            <button
+                                                [ngClass]="{'MuiButtonBase-root':true,'MuiIconButton-root':true,'MuiIconButton-sizeMedium':true,'rtl-mui-1jmybut':true,'Mui-disabled':!toggleadd}"
+                                                tabindex="0"
+                                                type="button"
+                                                (click)="addperson($event)"
+                                                aria-label="plus"
+                                                >
+                                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rtl-mui-1lf2qyz" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="AddIcon">
+                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                                                </svg>
+                                                <span class="MuiTouchRipple-root rtl-mui-w0pj6f"></span>
+                                            </button>
+                                            <input class="input-value" disabled="" placeholder="چند نفرید؟ " dir="rtl" max="8" value="{{strcount}}" />
+                                            <button
+                                                [ngClass]="{'MuiButtonBase-root':true,'MuiIconButton-root':true,'MuiIconButton-sizeMedium':true,'rtl-mui-1rj3mq8':true,'Mui-disabled':togglesubtract}"
+                                                tabindex="0"
+                                                (click)="subtractperson($event)"
+                                                type="button"
+                                                aria-label="minus"
+                                                >
+                                                <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rtl-mui-1lf2qyz" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="RemoveIcon">
+                                                <path d="M19 13H5v-2h14v2z"></path>
+                                                </svg>
+                                                <span class="MuiTouchRipple-root rtl-mui-w0pj6f"> </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-1scxoe7">
+                                        <button
+                                            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root rtl-mui-15c3303"
+                                            tabindex="0"
+                                            type="button"
+                                            >
+                                            پرداخت
+                                            <span class="MuiTouchRipple-root rtl-mui-w0pj6f"></span>
+                                        </button>
+                                        <button
+                                            class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButtonBase-root rtl-mui-1ebutwb"
+                                            tabindex="0"
+                                            type="button"
+                                            >
+                                            پرداخت
+                                            <span class="MuiTouchRipple-root rtl-mui-w0pj6f"></span>
+                                        </button>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                        <p class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter rtl-mui-1i9t6jl">همراه با گفتگوی آنلاین با میزبان قبل از پرداخت</p>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-true rtl-mui-1qfhtnm">
+                                        <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-true rtl-mui-1ag80em">
+                                            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-1s1n7ar">
+                                                    1 شب 5,000,000
+                                                    <span> تومانی </span>
+                                                </p>
+                                            </div>
+                                            <div class="MuiGrid-root MuiGrid-item rtl-mui-1wxaqej">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-cmyjyg">5,000,000 <span> تومان </span></p>
+                                            </div>
+                                        </div>
+                                        <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-true rtl-mui-1ag80em">
+                                            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-1jzh0ia">2 نفر ظرفیت اضافه</p>
+                                            </div>
+                                            <div class="MuiGrid-root MuiGrid-item rtl-mui-1wxaqej">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-15ctjcr">1,000,000 <span>تومان</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="MuiGrid-root MuiGrid-item MuiGrid-direction-xs-column MuiGrid-grid-xs-true rtl-mui-177oqzp">
+                                        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                            <hr class="MuiDivider-root MuiDivider-fullWidth rtl-mui-r3x416" />
+                                        </div>
+                                        <div class="MuiGrid-root MuiGrid-container MuiGrid-item MuiGrid-grid-xs-true rtl-mui-199jrx5">
+                                            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-ibdpe5">جمع کل</p>
+                                            </div>
+                                            <div class="MuiGrid-root MuiGrid-item rtl-mui-1wxaqej">
+                                                <p class="MuiTypography-root MuiTypography-body1 rtl-mui-ibdpe5">6,000,000 <span>تومان</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                          
+                            </div>
+                            <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-true rtl-mui-kxu0dz">
+                                <div class="MuiBox-root rtl-mui-p2ppma"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <lib-component-range-date-picker [RentItemID]="RentItemID" (setDateToParent)="GetOutputValDate($event)" *ngIf="showDateToggle"></lib-component-range-date-picker>
+       
+ 
+</html>

@@ -1,0 +1,143 @@
+<html style="direction:rtl">
+<main class="main">
+    <div class="content">
+
+        <div class="MuiBox-root rtl-mui-c35h6x">
+            <div class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column rtl-mui-16a4sew">
+                <div class="MuiGrid-root MuiGrid-item rtl-mui-1wxaqej">
+                    <div class="MuiGrid-root MuiGrid-container MuiGrid-item rtl-mui-5cu86e">
+                        <p class="MuiTypography-root MuiTypography-body1 rtl-mui-r3y8xd">بازه سفر خود را انتخاب کنید.
+                        </p>
+                    </div>
+                    <div class="calendar-pricing-datepicker">
+                        <div class="date_title_card">
+                            <div class="next-prev-container">
+                                <button class="MuiBox-root rtl-mui-1magf2c" disabled="">
+                                    <svg id="icon-arrow-normal1" width="15" height="15" viewBox="0 0 32 32" x="37"
+                                        y="259">
+                                        <path fill="none" stroke-linejoin="round" stroke-linecap="round"
+                                            stroke-miterlimit="4" stroke-width="2.6667" stroke="#000"
+                                            d="M6.667 16h18.667"></path>
+                                        <path fill="none" stroke-linejoin="round" stroke-linecap="round"
+                                            stroke-miterlimit="4" stroke-width="2.6667" stroke="#000"
+                                            d="M16 25.333l9.333-9.333-9.333-9.333"></path>
+                                    </svg>
+                                </button>
+                                <div *ngFor="let month of cellCalenderReservations" class="month_indicator">
+                                    {{month.Title}}</div>
+                                <button>
+                                    <svg id="icon-arrow-normal" width="15" height="15" viewBox="0 0 32 32" x="0"
+                                        y="259">
+                                        <path fill="none" stroke-linejoin="round" stroke-linecap="round"
+                                            stroke-miterlimit="4" stroke-width="2.6667" stroke="#000"
+                                            d="M25.333 16h-18.667"></path>
+                                        <path fill="none" stroke-linejoin="round" stroke-linecap="round"
+                                            stroke-miterlimit="4" stroke-width="2.6667" stroke="#000"
+                                            d="M16 25.333l-9.333-9.333 9.333-9.333"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="range_indicator"></div>
+                            <div class="week_header_container">
+                                <div class="week_header">
+                                    <div class="day_header">ش</div>
+                                    <div class="day_header">ی</div>
+                                    <div class="day_header">د</div>
+                                    <div class="day_header">س</div>
+                                    <div class="day_header">چ</div>
+                                    <div class="day_header">پ</div>
+                                    <div class="day_header">ج</div>
+                                </div>
+                                <div class="week_header">
+                                    <div class="day_header">ش</div>
+                                    <div class="day_header">ی</div>
+                                    <div class="day_header">د</div>
+                                    <div class="day_header">س</div>
+                                    <div class="day_header">چ</div>
+                                    <div class="day_header">پ</div>
+                                    <div class="day_header">ج</div>
+                                </div>
+                            </div>
+                            <div class="months_container">
+                                <div *ngFor="let month of cellCalenderReservations;let indexMonth=index;" class="days_container">
+                                    <div>
+                                        <div class="day_tag_parent">
+                                            <div *ngFor="let day of month.Days;let indexDay=index" [ngClass]="{'day_tag':true,
+                                                    'empty_day_tag':day.empty_day_tag==1,
+                                                    'day-is-disabled':day.timeout==1 && day.empty_day_tag==0,
+                                                    'day_is_passed':day.timeout==1 && day.empty_day_tag==0,
+                                                    'day_is_holiday':day.Holiday==1 && day.empty_day_tag==0,
+													'selected_in_range_date':day.selected_in_range_date==1,
+													'checkin_selected_in_range_date':day.checkin_selected_in_range_date==1,
+													'checkin_selected_date':day.checkin_selected_date==1,
+													'checkout_selected_in_range_date':day.checkout_selected_in_range_date==1,
+													'checkout_selected_date':day.checkout_selected_date==1,
+											
+													}" (mouseover)="SetInRange(indexMonth,indexDay,day.timeout)" (click)="setchoice(indexMonth,indexDay,day.timeout)">
+                                                <div *ngIf="day.empty_day_tag==0" class="date-picker-instant-wrapper">
+                                                    <div class="MuiBox-root rtl-mui-rihr8k">
+                                                        <div class="MuiBox-root rtl-mui-uzmt8i"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="day_label">
+                                                    <div *ngIf="day.empty_day_tag==0"
+                                                        class="MuiBox-root rtl-mui-j7qwjs">
+                                                        <div *ngIf="day.empty_day_tag==0" class="day">
+                                                            {{day.DayNumber.toString()}}</div>
+                                                        <div *ngIf="day.timeout==0"
+                                                            class="price MuiBox-root rtl-mui-rrm59m">
+                                                            {{day.Price.toString()}} </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MuiBox-root rtl-mui-gg4vpm">
+                        <div class="MuiGrid-root rtl-mui-wjome">
+                            <section class="rtl-mui-1u00biw">
+                                <div class="calendar-help">
+                                    <div class="instance-help">رزرو آنی</div>
+                                    <div class="pick-days-help">ایام پیک</div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="MuiGrid-root rtl-mui-mrsh0v">
+                            <button (click)="clearCalender()"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium rtl-mui-z98y4w"
+                                tabindex="0" type="button">
+                                <span class="MuiButton-startIcon MuiButton-iconSizeMedium rtl-mui-6xugel">
+                                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rtl-mui-1vztwko"
+                                        focusable="false" aria-hidden="true" viewBox="0 0 24 24"
+                                        data-testid="DeleteOutlineIcon">
+                                        <path
+                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5-1-1h-5l-1 1H5v2h14V4z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                به روز رسانی اطلاعات تقویم<span class="MuiTouchRipple-root rtl-mui-w0pj6f"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+
+    </div>
+</main>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+</html>

@@ -1,0 +1,178 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "GolestankoohSite2": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/golestankooh-site2",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+			
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "GolestankoohSite2:build:production"
+            },
+            "development": {
+              "buildTarget": "GolestankoohSite2:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "GolestankoohSite2:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "LibReservationPanel": {
+      "projectType": "library",
+      "root": "projects/lib-reservation-panel",
+      "sourceRoot": "projects/lib-reservation-panel/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lib-reservation-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-reservation-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-reservation-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/lib-reservation-panel/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "LibReservPanel": {
+      "projectType": "library",
+      "root": "projects/lib-reserv-panel",
+      "sourceRoot": "projects/lib-reserv-panel/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/lib-reserv-panel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-reserv-panel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-reserv-panel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/lib-reserv-panel/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}
