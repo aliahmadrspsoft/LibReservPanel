@@ -14,7 +14,7 @@ export class LibReservPanelService {
    // this.http = new HttpClient(handler); /// to skip interceptors, becouse this service hits third backend provider
   }
 
-  get(RentItemID: string, StartDate: string, EndDate: string,MiladiStartDate : string, MiladiEndDate: string, Act: string): Observable<Calender> {
+  get(RentItemID: string, StartDate: string,  Act: string): Observable<Calender> {
     let params = new HttpParams();
     const headerDict = {
       'Content-Type': 'application/json',
@@ -26,11 +26,8 @@ export class LibReservPanelService {
       headers: new Headers(headerDict), 
     };
     params = params.append('StartDate', StartDate);
-    params = params.append('EndDate', EndDate);
     params = params.append('RentItemID', RentItemID);
     params=params.append('Act',Act);
-    params=params.append('MiladiStartDate',MiladiStartDate);
-    params=params.append('MiladiEndDate',MiladiEndDate);
 
     let httpOptions = {
       headers: new HttpHeaders({

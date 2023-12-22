@@ -49,16 +49,11 @@ export class ComponentRangeDatePickerComponent implements OnInit, OnDestroy {
     if (this.RentItemID) {
       this.loadingBackdropService.show();
       this.libReservPanelService
-        .get(this.RentItemID, this.starttDate, this.endDate, this.miladiStartDate, this.miladiEndDate, this.actCalender)
+        .get(this.RentItemID, this.starttDate, this.actCalender)
         .pipe(finalize(() => this.loadingBackdropService.hide()))
         .subscribe(
           (data) => {
             this.cellCalenderReservations = data.data;
-            this.cellCalenderReservationBackup = data.data;
-            this.starttDate = data.startDate;
-            this.endDate = data.endDate;
-            this.miladiStartDate = data.miladiStartDate;
-            this.miladiEndDate = data.miladiEndDate;
           },
           error => { },
         );
